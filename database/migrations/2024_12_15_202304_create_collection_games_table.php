@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('list_games', function (Blueprint $table) {
+        Schema::create('collection_games', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('game_id');
-            $table->unsignedBigInteger('list_id');
+            $table->unsignedBigInteger('collection_id');
             $table->foreign('game_id')->references('id')->on('games');
-            $table->foreign('list_id')->references('id')->on('lists');
+            $table->foreign('collection_id')->references('id')->on('collections');
 
             $table->date('add_date');
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('list_games');
+        Schema::dropIfExists('collection_games');
     }
 };

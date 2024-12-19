@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('poster_image');
             $table->string('cover_image');
             //TODO set default color
-//            $table->string('color')->default('');
+            $table->string('color')->default('#6B3FA0');
             $table->string('epic_link')->nullable();
             $table->string('steam_link')->nullable();
             $table->float('rating')->default(0);

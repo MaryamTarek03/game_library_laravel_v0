@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('icon')->nullable();
             //TODO set default color
-//            $table->string('color')->default('');
+            $table->string('color')->default('6B3FA0');
             $table->timestamps();
         });
     }
