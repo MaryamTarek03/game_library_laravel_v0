@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('epic_link')->nullable();
             $table->string('steam_link')->nullable();
             $table->float('rating')->default(0);
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->unique()->userName(),
+            'title' => $this->faker->unique()->name(),
             'color' => $this->faker->hexColor(),
             'price' => $this->faker->randomFloat(1, 0, 150),
             'description' => $this->faker->paragraph(),

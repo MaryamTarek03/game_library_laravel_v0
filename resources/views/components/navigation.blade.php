@@ -3,53 +3,46 @@
 @endif
 
 @props([
-    'color' => '#6B3FA0'
+    'color' => ''
 ])
 
-<div class="fixed top-0 left-0 h-screen w-16 m-0
-            flex flex-col text-white bg-[url('/images/Nami.jpg')]
-            bg-cover backdrop-blur-lg">
+{{--            sm:h-16 sm:w-screen sm:bottom-0--}}
+<div class="fixed md:top-0 md:left-0 md:h-screen md:w-16 sm:bottom-0 sm:left-0 sm:right-0 m-0 flex md:flex-col text-white sm:flex-row bg-cover backdrop-blur-lg sm:mt-10">
     <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
 
-    <img class="self-center pt-3" src="/images/icons/logo.png" alt="" width="60" height="60">
+{{--    <img class="self-center pt-3" src="/images/icons/logo.png" alt="" width="60" height="60">--}}
 
-    <div class="flex flex-col justify-center flex-grow">
+    <div class="flex md:flex-col sm:flex-row justify-center flex-grow gap-2">
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('games')"
+            :active="request()->is('games*')"
             href="{{ route('games.index') }}"
             image="/images/icons/home.png">
         </x-navigation-item>
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('')"
-            href="{{ route('games.index') }}"
+            :active="request()->is('collections/Library')"
+            href="{{ route('collections.showByName', 'Library')}}"
             image="/images/icons/library.png">
         </x-navigation-item>
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('')"
-            href="{{ route('games.index') }}"
+            :active="request()->is('collections/Favorite')"
+            href="{{ route('collections.showByName', 'Favorite')}}"
             image="/images/icons/favorite.png">
         </x-navigation-item>
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('')"
-            href="{{ route('games.index') }}"
+            :active="request()->is('collections')"
+            href="{{ route('collections.index') }}"
             image="/images/icons/collections.png">
         </x-navigation-item>
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('')"
-            href="{{ route('games.index') }}"
+            :active="request()->is('dashboard')"
+            href="{{ route('dashboard') }}"
             image="/images/icons/dashboard.png">
         </x-navigation-item>
 
-    </div>
-
-    <div class="self-center pb-3">
-        <a>
-            <img src="/images/profile.jpg" alt="" class="rounded-3xl" width="40" height="40">
-        </a>
     </div>
 </div>

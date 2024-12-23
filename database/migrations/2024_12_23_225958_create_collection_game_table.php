@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('game_categories', function (Blueprint $table) {
+        Schema::create('collection_game', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('game_id');
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('game_id')->references('id')->on('games');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('collection_id');
+            $table->foreign('game_id')->references('id')->on('games')->cascadeOnDelete();
+            $table->foreign('collection_id')->references('id')->on('collections')->cascadeOnDelete();
+
+            $table->date('add_date');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game_categories');
+        Schema::dropIfExists('collection_game');
     }
 };

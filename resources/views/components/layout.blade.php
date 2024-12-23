@@ -1,5 +1,7 @@
 @props([
-    'image' => ''
+    'image' => '',
+    'color' => '#6B3FA0',
+    'text' => ''
 ])
 
 
@@ -19,11 +21,12 @@
 </head>
 <body style='background-image: url("{{ $image }}"); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;'>
 
-<div class="d-flex" style='height: 100vh;'>
-    <x-navigation></x-navigation>
-    <div class="ml-16">
+<div class="">
+    <x-navbar text="{{ $text }}"></x-navbar>
+    <div class="md:ml-16 px-6">
         {{ $slot }}
     </div>
+    <x-navigation color="{{ $color }}"></x-navigation>
 </div>
 
 </body>

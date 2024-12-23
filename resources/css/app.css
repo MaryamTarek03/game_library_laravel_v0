@@ -1,3 +1,259 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body { background: linear-gradient(180deg, #0d0c0d, #910391);}
+
+/* color of placeholder */
+input::placeholder { color: #aaa;}
+
+.form-control { background-color: #f8f9fa;color: #555;}
+
+/* buttons in signup and login */
+.btn-primary {background-color: #4e0842;border: none;}
+.btn-primary:hover {background-color: #7400e0;}
+
+/* .bg-gradient {
+    color: white;
+} */
+ /* right side in the login and register img */
+.text-white{
+    background-image: url("img2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* image in the profile */
+.circle-image {
+    width: 300px; /* Set fixed width */
+    height: 300px; /* Set fixed height */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image fits without distortion */
+    border: 3px solid #ccc; /* Optional border */
+    transition: transform 0.8s ease, box-shadow 0.3s ease;
+}
+/* hover in profile image */
+ .img_profile:hover{
+    
+     /* transform: rotate(180deg); 
+    opacity: 5; */
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+} 
+/* buttons in profile page */
+.a_button{
+    color: rgb(247, 241, 241); 
+    text-decoration: none;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 20px;
+}
+/* everything about social media icons */
+.icon-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    /*background-color: #000;*/
+    color: #fff;
+    border-radius: 8px; /* Rounded edges */
+    font-size: 24px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.icon-playstation { background-color: #00439c; }
+.icon-xbox { background-color: #107c10; }
+.icon-apple { background-color: #000; }
+.icon-google { background-color: #9d3a1c; color: #000; border: 1px solid #ccc; }
+.icon-facebook { background-color: #1877f2; }
+
+.icon-playstation:hover {
+    background-color: #054eb4;
+    box-shadow: 0 0 10px #051a35;
+    transform: scale(1.1);
+}
+.icon-xbox:hover {
+    background-color: #0dc30d;
+    box-shadow: 0 0 10px #044704;
+    transform: scale(1.1);
+}
+.icon-apple:hover {
+    background-color: #082348;
+    box-shadow: 0 0 10px #051a35;
+    transform: scale(1.1);
+}
+.icon-google:hover {
+    background-color: #cb3d12;
+    box-shadow: 0 0 10px #9d3a1c;
+    transform: scale(1.1);
+}
+.icon-facebook:hover {
+    background-color: #2d85f9;
+    box-shadow: 0 0 10px #0f5dc3;
+    transform: scale(1.1);
+}
+.carousel {
+    position: relative;
+    min-height: 500px; /* Adjust this based on how large you want the carousel */
+    z-index: 1; /* Ensure carousel content stays on top */
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.4
+    ); /* Optional: semi-transparent background for carousel items */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect on carousel images */
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+/* Cards in the carousel */
+.card {
+    background-color: transparent; /* Transparent background for category cards */
+    border: none; /* Remove border for cards */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect on category cards */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Cards inside the carousel grid */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect on image inside card */
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+/* Container for the list of games */
+.container {
+    margin-top: 20px;
+    /* background: rgba(
+        255,
+        255,
+        255,
+        0.9
+    );  */
+    /* Semi-transparent background for game list */
+    padding: 20px;
+    z-index: 1; /* Ensure game list stays on top of background */
+}
+
+/* Make sure the game cards are responsive */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.col-lg-3,
+.col-md-4,
+.col-6 {
+    flex: 1 1 calc(25% - 1rem); /* 4 items in a row on large screens */
+    max-width: calc(25% - 1rem); /* Maintain the width and gap */
+}
+
+@media (max-width: 992px) {
+    .col-lg-3 {
+        flex: 1 1 calc(33.333% - 1rem); /* 3 items in a row on medium screens */
+        max-width: calc(33.333% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 1 1 calc(50% - 1rem); /* 2 items in a row on smaller screens */
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .col-6 {
+        flex: 1 1 100%; /* 1 item in a row on small screens */
+        max-width: 100%;
+    }
+}
+
+/* Hover effect on game card images */
+.card-img-top {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+
+/* Styling for the category title and game title */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff; /* White text color for better visibility */
+}
+
+/* Optional: Styling the background of the homepage to ensure full coverage */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1; /* Ensure background stays behind content */
+}
+
+.settings-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #eea8a8;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #ee0bd4;
+    padding: 20px;
+}
+.form-label {
+    font-weight: bold;
+}
+.btn {
+    background-color: #810292;
+    color: #fff;
+}
+.btn:hover {
+    background-color: #6b083e;
+}
+.alert {
+    margin-top: 15px;
+}
+body.dark-mode {
+    background-color: #39043a;
+    color: white;
+}

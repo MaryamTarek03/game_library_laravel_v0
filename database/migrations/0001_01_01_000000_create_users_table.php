@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('profile_pic')->nullable();
             $table->string('email')->unique();
             $table->string('username')->unique();
-            $table->boolean('is_contributor');
-            $table->boolean('is_admin');
+            $table->boolean('is_contributor')->default(false);
+            $table->boolean('is_admin')->default(false);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

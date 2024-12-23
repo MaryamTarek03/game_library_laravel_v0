@@ -10,8 +10,15 @@ class Category extends Model
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
 
+    protected $table = 'categories';
+    protected $fillable = [
+        'name',
+        'color',
+        'icon',
+    ];
+
     public function games()
     {
-        return $this->belongsToMany(Game::class);
+        return $this->hasMany(Game::class);
     }
 }

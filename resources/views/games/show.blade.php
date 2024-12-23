@@ -3,8 +3,21 @@
     @vite(['resources/bootstrap/css/bootstrap.css', 'resources/bootstrap/js/bootstrap.js'])
 @endif
 
-<x-layout image="/images/Nami.jpg">
+<x-layout image="/images/Nami.jpg" color="{{ $game->color }}">
 {{--<x-layout image="{{ $game->cover_image }}">--}}
+    @auth
+    {{-- @dd(auth()->user()->is_admin); --}}
+        @if(auth()->user()->is_admin || auth()->user()->is_contributor)
+            <div class="mb-4">
+            <a href="{{ route('games.edit', $game->id) }}" class="btn btn-warning">Update</a>
+            <form action="{{ route('games.destroy', $game->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <input type="submit" class="btn btn-danger" value="Delete">
+            </form>
+            </div>
+        @endif
+    @endauth
     <div class="container">
         <h1>{{ $game->title }}</h1>
         <div class="card mb-4 backdrop-blur-sm bg-transparent text-white">

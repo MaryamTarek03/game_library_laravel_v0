@@ -17,6 +17,11 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                'camping': "url('/public/images/camping.jpg')",
+                'prestige-nami': "url('/public/images/prestige_nami.png')",
+                'footer-texture': "url('/img/footer-texture.png')",
+            }
         },
     },
     plugins: [],
