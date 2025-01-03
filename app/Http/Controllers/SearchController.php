@@ -11,7 +11,7 @@ class SearchController extends Controller
     public function searchByName(Request $request)
     {
         $name = $request->input('name');
-        $games = Game::where('name', 'LIKE', '%' . $name . '%')->get();
+        $games = Game::where('title', 'LIKE', '%' . $name . '%')->get();
         return view('results', ['games' => $games]);
     }
 

@@ -15,8 +15,8 @@
     <div class="flex md:flex-col sm:flex-row justify-center flex-grow gap-2">
         <x-navigation-item
             color="{{ $color }}"
-            :active="request()->is('games*')"
-            href="{{ route('games.index') }}"
+            :active="request()->is('home*')"
+            href="{{ route('home') }}"
             image="/images/icons/home.png">
         </x-navigation-item>
         <x-navigation-item

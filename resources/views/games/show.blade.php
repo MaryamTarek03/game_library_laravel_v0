@@ -3,9 +3,46 @@
     @vite(['resources/bootstrap/css/bootstrap.css', 'resources/bootstrap/js/bootstrap.js'])
 @endif
 
-<x-layout image="/images/Nami.jpg" color="{{ $game->color }}">
-{{--<x-layout image="{{ $game->cover_image }}">--}}
-    @auth
+<x-layout image="{{ '/storage/' . $game->cover_image }}" color="{{ $game->color }}" text="{{ $game->title }}">
+    
+    <div class="">
+        <div class="flex mb-4  bg-transparent text-white">
+                    <img src="{{ '/storage/' . $game->poster_image }}" class=" img-fluid w-25 rounded-5" alt="{{ $game->title }}">
+            <div class="text-center justify-content-center align-items-center">
+                <!-- <p class="card-text p-3 bg-light text-dark rounded fw-bold m-3 desc_font">{{ $game->description }}</p> -->
+                <p class="card-text p-3 rounded fw-bold m-3 desc_font" style="background-color: rgba(255, 255, 255, 0.8); color: #000;">
+    {{ $game->description }}
+</p>
+
+                <p class="card-text">${{ $game->price }}</p>
+                <p class="card-text">{{ $game->rating }}/5</p>
+                <p class="card-text"><strong>Release Date:</strong> {{ $game->release_date }}</p>
+            </div>
+             
+        </div>
+        
+        @auth
+        <div class="flex">
+            <!-- play button -->
+            <div class="container text-center mt-5">
+                <a class="btn btn-primary rounded-4 w-25">
+                    <i class="bi bi-play-fill"></i> Play
+                </a>
+            </div>
+            <!-- play button -->
+
+            <div class="container text-center mt-5">
+                <a class="btn btn-primary rounded-4 w-25" href="{{ route('games.attachToCollection', $game->id) }}">
+                    <i class="bi bi-play-fill"></i> Favourite
+                </a>
+            </div>
+            <!-- play button -->
+            <div class="container text-center mt-5">
+                <a class="btn btn-primary rounded-4 w-25" href="{{ route('games.attachToCollection', $game->id) }}">
+                    <i class="bi bi-play-fill"></i> Add to List
+                </a>
+            </div>
+        </div>
     {{-- @dd(auth()->user()->is_admin); --}}
         @if(auth()->user()->is_admin || auth()->user()->is_contributor)
             <div class="mb-4">
@@ -18,20 +55,6 @@
             </div>
         @endif
     @endauth
-    <div class="container">
-        <h1>{{ $game->title }}</h1>
-        <div class="card mb-4 backdrop-blur-sm bg-transparent text-white">
-            {{--         <img src="{{ $game->cover_image }}" class="card-img-top" alt="{{ $game->title }}">--}}
-            <div class="card-body">
-                <h5 class="card-title">{{ $game->title }}</h5>
-                <p class="card-text">{{ $game->description }}</p>
-                <p class="card-text"><strong>Price:</strong> ${{ $game->price }}</p>
-                <p class="card-text"><strong>Rating:</strong> {{ $game->rating }}/5</p>
-                <p class="card-text"><strong>Release Date:</strong> {{ $game->release_date }}</p>
-                <a href="{{ $game->epic_link }}" class="btn btn-primary">Epic Store</a>
-                <a href="{{ $game->steam_link }}" class="btn btn-secondary">Steam</a>
-            </div>
-        </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
 </x-layout>

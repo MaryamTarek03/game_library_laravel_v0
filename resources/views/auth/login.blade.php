@@ -8,7 +8,7 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 @endif
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,6 +35,8 @@
                         </span>
                     <input type="email" name="email" class="form-control shadow-none border-0" placeholder="E-mail"
                            required>
+                    <x-form-error name="email" />
+
                 </div>
                 <!-- Password -->
                 <div class="input-group mb-3">
@@ -43,6 +45,8 @@
                         </span>
                     <input type="password" name="password" class="form-control shadow-none border-0"
                            placeholder="Password" required>
+                    <x-form-error name="password" />
+
                 </div>
                 <!-- social media -->
                 <div class="icon-container">

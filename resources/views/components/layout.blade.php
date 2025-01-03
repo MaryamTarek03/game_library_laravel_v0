@@ -8,7 +8,7 @@
 <html>
 <head>
     <title>
-        title
+        Game Vault
     </title>
     {{--    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))--}}
     {{--        @vite(['resources/bootstrap/css/bootstrap.css', 'resources/bootstrap/js/bootstrap.js'])--}}

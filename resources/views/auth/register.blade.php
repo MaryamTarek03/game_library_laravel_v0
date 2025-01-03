@@ -105,7 +105,7 @@
             </form>
             <!-- Already Have an Account -->
             <p class="mt-4 text-center text-secondary">
-                Already have an account? <a href="login.html" class="text-primary">Log in</a>
+                Already have an account? <a href="/login" class="text-primary">Log in</a>
             </p>
         </div>
 

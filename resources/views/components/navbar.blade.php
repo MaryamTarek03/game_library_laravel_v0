@@ -35,7 +35,7 @@
                             <label class="align-content-center text-white">
                                 {{ Auth::user()->name }}
                             </label>
-                            <img src="/images/profile.jpg" alt="" class="rounded-3xl" width="35" height="35">
+                            <img src={{ ('/storage/' . Auth::user()->profile_pic) ?? "/images/profile.jpg" }} alt="" class="rounded-3xl" width="35" height="35">
                         </div>
                     </a>
                 </div>

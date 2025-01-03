@@ -11,7 +11,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 
-Route::get('/', [GameController::class, 'index'])->name('games.index');
+Route::get('/', [HomeController::class, '__invoke'])->name('home');
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::get('collections/{collection}/edit', [CollectionController::class, 'edit'])->name('collections.edit');
     Route::put('collections/{collection}', [CollectionController::class, 'update'])->name('collections.update');
     Route::delete('collections/{collection}', [CollectionController::class, 'destroy'])->name('collections.destroy');
+    Route::post('/games/{game}/attach-collection', [GameController::class, 'attachToCollection'])->name('games.attachToCollection');
+    Route::delete('/games/{game}/detach-collection', [GameController::class, 'detachFromCollection'])->name('games.detachFromCollection');
+    Route::get('/games/{game}/attach', [GameController::class, 'attach'])->name('games.attach');
+
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
@@ -42,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
     Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
 
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -58,17 +63,17 @@ Route::middleware('guest')->group(function () {
 
 Route::get('home', [HomeController::class, '__invoke'])->name('home');
 Route::get('/search', [SearchController::class, 'searchByName'])->name('searchByName');
-Route::get('/search', [SearchController::class, 'searchByCategory'])->name('searchByCategory');
+// Route::get('/search', [SearchController::class, 'searchByCategory'])->name('searchByCategory');
 
-Route::post('/logout', [SessionController::class, 'destroy'])->name('destroy');
+Route::delete('/logout', [SessionController::class, 'destroy'])->name('destroy');
 
 
 Route::get('/games', [GameController::class, 'index'])->name('games.index');
-Route::get('/games/create', [GameController::class, 'create'])->name('games.create');
 Route::post('/games', [GameController::class, 'store'])->name('games.store');
+Route::get('/games/create', [GameController::class, 'create'])->name('games.create');
 Route::get('/games/{game}', [GameController::class, 'show'])->name('games.show');
 Route::get('/games/{game}/edit', [GameController::class, 'edit'])->name('games.edit');
-Route::patch('/games/{game}', [GameController::class, 'update'])->name('games.update');
+Route::put('/games/{game}', [GameController::class, 'update'])->name('games.update');
 Route::delete('/games/{game}', [GameController::class, 'destroy'])->name('games.destroy');
 
 

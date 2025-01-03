@@ -7,6 +7,8 @@
 
 <x-layout image="/images/background.png" text="Home">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- create Button -->
+        <a type="submit" class="btn btn-primary w-100 mt-3" href="{{ route('games.create') }}">Add</a>
         @foreach($games as $game)
                 <div class="backdrop-blur-sm bg-transparent text-white rounded-3xl p-4 border-purple-300 border-2 justify-between">
 {{--                                            <img src="{{ $game->poster_image }}" class="card-img-top" alt="{{ $game->title }}">--}}
